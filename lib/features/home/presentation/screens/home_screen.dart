@@ -5,6 +5,7 @@ import '../widgets/custom_bottom_navbar.dart';
 import '../widgets/home_header.dart';
 import '../widgets/quick_calculate_card.dart';
 import '../widgets/tool_card.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,18 +29,21 @@ class _HomeScreenState extends State<HomeScreen> {
       "subtitle": "Calculator",
       "icon": Icons.receipt_long,
       "color": const Color(0xff8D6E63),
+      "route": "/gst",
     },
     {
       "title": "EMI",
       "subtitle": "Calculator",
       "icon": Icons.home,
       "color": const Color(0xff43A047),
+      "route": "/emi",
     },
     {
       "title": "Loan",
       "subtitle": "Calculator",
       "icon": Icons.credit_card,
       "color": const Color(0xff7E57C2),
+      "route": "/loan",
     },
     {
       "title": "Currency",
@@ -126,7 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           subtitle: tool["subtitle"],
                           icon: tool["icon"],
                           color: tool["color"],
-                          onTap: () {},
+                          onTap: () {
+                            context.push(tool["route"]);
+                          },
                         );
                       },
                     ),

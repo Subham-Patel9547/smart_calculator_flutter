@@ -7,7 +7,7 @@ class AppColors {
 
   static const Color card = Color(0xff1E1E1E);
 
-  static const Color primary = Color(0xff4CAF50);
+  static const Color primary = Color.fromARGB(255, 42, 104, 44);
 
   static const Color secondary = Color(0xff64B5F6);
 
@@ -20,4 +20,6 @@ class AppColors {
   static const Color success = Color(0xff4CAF50);
 
   static const Color warning = Color(0xffFFC107);
+
+  static const Color appBar=Color.fromARGB(255, 187, 186, 186);
 }
