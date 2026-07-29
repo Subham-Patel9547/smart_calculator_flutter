@@ -16,11 +16,8 @@ class LoanScreen extends StatefulWidget {
 
 class _LoanScreenState extends State<LoanScreen> {
   final TextEditingController loanController = TextEditingController();
-
   final TextEditingController interestController = TextEditingController();
-
   final TextEditingController yearController = TextEditingController();
-
   final TextEditingController monthController = TextEditingController();
 
   final NumberFormat formatter = NumberFormat.currency(
@@ -44,13 +41,9 @@ class _LoanScreenState extends State<LoanScreen> {
   void _calculateLoan() {
 
     final principal = double.tryParse(loanController.text) ?? 0;
-
     final annualRate = double.tryParse(interestController.text) ?? 0;
-
     final years = int.tryParse(yearController.text) ?? 0;
-
     final months = int.tryParse(monthController.text) ?? 0;
-
     final totalMonths = years * 12 + months;
 
     if (principal <= 0 || totalMonths <= 0) {
@@ -63,7 +56,7 @@ class _LoanScreenState extends State<LoanScreen> {
     double interestPercentage = 0;
 
 if (principal > 0) {
-  interestPercentage = (totalInterest / principal) * 100;
+  // interestPercentage = (totalInterest / principal) * 100;
 }
 
     double monthlyRate = annualRate / 12 / 100;
@@ -79,7 +72,6 @@ if (principal > 0) {
     }
 
     final totalPayment = emi * totalMonths;
-
     final totalInterest = totalPayment - principal;
 
     setState(() {

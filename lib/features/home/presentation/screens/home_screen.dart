@@ -50,18 +50,21 @@ class _HomeScreenState extends State<HomeScreen> {
       "subtitle": "Converter",
       "icon": Icons.currency_exchange,
       "color": const Color(0xff26C6DA),
+      "route": '/currency',
     },
     {
       "title": "Unit",
       "subtitle": "Converter",
       "icon": Icons.straighten,
       "color": const Color(0xff8D6E63),
+      "route": "/unit",
     },
     {
       "title": "History",
       "subtitle": "Saved",
       "icon": Icons.history,
       "color": const Color(0xff9E9E9E),
+      "route": '/history',
     },
     {
       "title": "Settings",

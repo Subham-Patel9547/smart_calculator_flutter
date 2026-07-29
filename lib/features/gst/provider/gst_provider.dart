@@ -5,6 +5,9 @@ import 'package:intl/intl.dart';
 import '../model/gst_result.dart';
 import '../utils/gst_calculator.dart';
 
+import '../../history/service/history_service.dart';
+
+
 class GstProvider extends ChangeNotifier {
   /// Controllers
   final TextEditingController amountController = TextEditingController();
@@ -115,6 +118,14 @@ class GstProvider extends ChangeNotifier {
       includeGst: _includeGst,
     );
 
+    // Save History
+    HistoryService.save(
+      tool: "GST",
+      input:
+          "₹${amount.toStringAsFixed(2)} • ${_selectedRate}% • ${_includeGst ? "Include" : "Exclude"}",
+      output: formatCurrency(_result!.totalAmount),
+    );
+
     notifyListeners();
   }
 
@@ -146,22 +157,7 @@ class GstProvider extends ChangeNotifier {
 
   String get shareText {
     if (_result == null) return "";
-
-    return '''
-GST Calculator
-
-Amount : ${formatCurrency(_result!.amount)}
-
-GST Rate : ${_result!.gstRate}%
-
-Mode : ${_includeGst ? "Include GST" : "Exclude GST"}
-
-Original Amount : ${formatCurrency(_result!.originalAmount)}
-
-GST Amount : ${formatCurrency(_result!.gstAmount)}
-
-Total Amount : ${formatCurrency(_result!.totalAmount)}
-''';
+    return ''' GST Calculator Amount : ${formatCurrency(_result!.amount)} GST Rate : ${_result!.gstRate}% Mode : ${_includeGst ? "Include GST" : "Exclude GST"} Original Amount : ${formatCurrency(_result!.originalAmount)} GST Amount : ${formatCurrency(_result!.gstAmount)} Total Amount : ${formatCurrency(_result!.totalAmount)} ''';
   }
 
   /// Copy Result

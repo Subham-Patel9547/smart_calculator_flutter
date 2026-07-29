@@ -61,7 +61,7 @@ class QuickCalculateCard extends StatelessWidget {
                       width: 56,
                       height: 56,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(12),
                         color: const Color(0xff1E3520),
                       ),
                       child: const Center(

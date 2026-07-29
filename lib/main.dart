@@ -7,8 +7,19 @@ import './features/emi/providers/emi_provider.dart';
 import './app/theme/app_theme.dart';
 import 'providers/calculator_provider.dart';
 
-void main() {
+import 'package:hive_flutter/hive_flutter.dart';
+
+import 'features/history/model/history_model.dart';
+import 'features/history/service/history_service.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(HistoryModelAdapter());
+
+  await Hive.openBox<HistoryModel>(HistoryService.boxName);
 
   runApp(
     MultiProvider(
