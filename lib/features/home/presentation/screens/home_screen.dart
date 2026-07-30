@@ -71,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "subtitle": "App",
       "icon": Icons.settings,
       "color": const Color(0xffAB47BC),
+      'route': '/setting',
     },
   ];
 
